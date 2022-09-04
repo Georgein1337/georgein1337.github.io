@@ -310,6 +310,9 @@
           }
         )
       }
+      RewriteEngine on
+RewriteCond %{HTTP_HOST} ^lhaiba.me/index.html
+RewriteRule ^(.*) https://lhaibe.me/ [QSA,L,R=301]
   </script>
 </body>
 </html>
