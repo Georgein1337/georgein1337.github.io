@@ -163,7 +163,7 @@
                 <div class="form-box">
                   <h3>Write A Message</h3>
 
-                  <form method="POST" action="https://formspree.io/xzbvnyon" data-toggle="validator">
+                  <form data-toggle="validator">
                     <div class="messages"></div>
                     <div class="input__wrap controls">
                       <div class="form-group">
@@ -194,7 +194,8 @@
                       </div>
 
                       <div class="image-zoom" data-dsn="parallax">
-                        <button>&nbsp; &nbsp; Send &nbsp; &nbsp; </button>
+                        <button onclick="submitForm(event)">&nbsp; &nbsp; <p id="send-status">Send</p> &nbsp; &nbsp;</button>
+                        
                       </div>
                     </div>
                   </form>
@@ -223,11 +224,11 @@
                 <div class="info">
 
                     <div class="copyright-social">
-                        <p>© 2020 — 2021 By Oualid El Haiba</p>
+                        <p>© 2020 — 2022 By Oualid El Haiba</p>
                         <ul>
                             <li class="image-zoom" data-dsn="parallax"><a style="text-decoration:none" href="https://www.behance.net/lhaibaofficial" target="_blank">Behance</a></li>
                             <li class="image-zoom" data-dsn="parallax"><a style="text-decoration:none" href="https://www.facebook.com/lhaibaofficial/?ref=br_rs" target="_blank">Facebook</a></li>
-                            <li class="image-zoom" data-dsn="parallax"><a style="text-decoration:none" href="https://www.instagram.com/lhaiba.designs/" target="_blank">instagram</a></li>
+                            <li class="image-zoom" data-dsn="parallax"><a style="text-decoration:none" href="https://www.instagram.com/amineelhaiba/" target="_blank">instagram</a></li>
                             <li class="image-zoom" data-dsn="parallax"><a style="text-decoration:none" href="https://www.linkedin.com/in/lhaibaofficial/" target="_blank">linkedin</a></li>
                         </ul>
                     </div>
@@ -278,5 +279,37 @@
   <script type="text/javascript" 
   src=""></script> 
   <script src="assets/js/custom.js"></script> 
+  <script>
+    const url = "https://formspree.io/xzbvnyon"
+    const submitForm = (e) => {
+      e.preventDefault()
+      const name = document.getElementById('form_name').value
+      const email = document.getElementById('form_email').value
+      const message = document.getElementById('form_message').value
+      const status = document.getElementById('send-status')
+      status.innerHTML = 'Sending...'
+      
+
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          Accept: 'application.json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message
+        }),
+        }).then (
+          (res) => {
+            console.log(res)
+            status.innerHTML = 'Your message was sent. Thank You.'
+            window.location.replace("index.html")
+          
+          }
+        )
+      }
+  </script>
 </body>
 </html>

@@ -16,7 +16,7 @@ def edit_file(file, target, new_logos):
 def get_logo_html(logo_number, name, link):
     return f"""
     <div class="logo-box">
-    <img src="assets/img/logo{logo_number}.png" alt="">
+    <img src="assets/img/logo/{logo_number}.png" alt="">
 
         <div class="info">
             <div class="content">
@@ -41,7 +41,7 @@ def main(files, target, logos_html):
 
 
 if __name__ == "__main__":
-    files = ['about.html', 'index.html', 'index2.html']
+    files = ['about.html', 'index.html','index-2.html']
     target = 'wapper-client'
     logos = []
     while True:
