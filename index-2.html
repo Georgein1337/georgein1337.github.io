@@ -665,7 +665,7 @@
            AMINE EL HAIBA
           </h6>
           <small data-dsn-animate="text">
-            Graphic Designer | UI / UX Designer | Motionn Designer.
+            Graphic Designer | UI / UX Designer | Motion Designer.
           </small>
           <div class="exper">
            <div class="numb-ex">
@@ -1298,6 +1298,18 @@
   <script src="assets/js/dsn-grid.js">
   </script>
   <script src="assets/js/custom.js">
+
+RewriteEngine On
+RewriteRule ^home$ index-2.html [NC,L]
+RewriteRule ^home$ index.html [NC,L]
+RewriteRule ^chromium$ project-1.html [NC,L]
+RewriteRule ^wvrp$ project-2.html [NC,L]
+RewriteRule ^events$ events.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ ?=$1 [NC,L]
+
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   </script>
  </body>
 </html>
