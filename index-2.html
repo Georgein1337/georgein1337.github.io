@@ -1298,18 +1298,6 @@
   <script src="assets/js/dsn-grid.js">
   </script>
   <script src="assets/js/custom.js">
-
-RewriteEngine On
-RewriteRule ^home$ index-2.html [NC,L]
-RewriteRule ^home$ index.html [NC,L]
-RewriteRule ^chromium$ project-1.html [NC,L]
-RewriteRule ^wvrp$ project-2.html [NC,L]
-RewriteRule ^events$ events.php [NC,L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ ?=$1 [NC,L]
-
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   </script>
  </body>
 </html>
